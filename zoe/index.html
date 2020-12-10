@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>zoe</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+  <style>
+    img[alt="zoe"] {
+      height: 50px;
+    }
+
+    .iframe-container {
+      width: 300px;
+      height: 560px;
+      position: fixed;
+      top: 50%;
+      right: 30px;
+      transform: translate3d(0, -55%, 0);
+    }
+
+    /* .content {
+      margin-right: 260px;
+    } */
+  </style>
+  <!-- <script src="https://cdn.bootcss.com/react/15.6.1/react.js"></script>
+  <script src="https://cdn.bootcss.com/react/15.6.1/react-dom.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script src="https://unpkg.com/docsify-demo-box-react/dist/docsify-demo-box-react.min.js"></script> -->
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    // var jsResources = '<scr' + 'ipt src="//cdn.bootcss.com/react/15.6.1/react.js"></scr' + 'ipt>\n' +
+    // '<scr' + 'ipt src="//cdn.bootcss.com/react/15.6.1/react-dom.js"></scr' + 'ipt>'
+    // var cssResources = '@import url("//cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css");'
+    // var bootCode = 'var globalVariable = "leon"'
+    // var globalVariable = "leon"
+
+    window.$docsify = {
+      name: 'zoe',
+      repo: 'http://coding.jd.com/FeTools/zoe/',
+      logo: '/_media/logo.svg',
+      coverpage: true, // 封面
+      loadSidebar: true, // 侧边栏
+      autoHeader: true, // 将sidebar的标题设置为页面标题，如果已经设置了一级标题则不生效
+      subMaxLevel: 1, // 默认情况下只会有一层目录，subMaxLevel可以设置多层目录，从二级标题开始取，设置为2说明只会取二级标题
+      auto2top: true, // 切换页面后是否自动跳转到页面顶部
+      executeScript: true, // 执行文档里的 script 标签里的脚本，只执行第一个 script
+      loadNavbar: true,
+      mergeNavbar: true,
+      maxLevel: 4,
+      alias: {
+        '/zh-cn/_sidebar.md': '/_sidebar.md',
+        '/zh-cn/_navbar.md': '/_navbar.md',
+      },
+      plugins: [
+        // DemoBoxReact.create(jsResources, cssResources, bootCode),
+        function (hook, vm) {
+          hook.beforeEach(function(html) {
+            var url = 'http://coding.jd.com/FeTools/zoe/tree/master/docs/' + vm.route.file;
+            var editHtml = '\n\n [📝 Edit Document](' + url + ')';
+
+            return html + editHtml
+          })
+
+          var footer = [
+            '<hr/>',
+            '<footer style="text-align: center;">',
+            '<span><a href="http://coding.jd.com/FeTools/zoe/">zoe</a> &copy;2020.</span>',
+            '<span>Powered By <a href="https://github.com/QingWei-Li/docsify" target="_blank">docsify</a></span>',
+            '</footer>'
+          ].join('')
+
+          hook.afterEach(function (html) {
+            return html + footer
+          })
+        }
+      ],
+      copyCode: {
+        buttonText : '复制代码',
+        successText: '复制成功'
+      },
+      search: {
+        placeholder: {
+          '/': '搜索',
+          '/zh-cn/': '搜索',
+          '/en-us/': 'Type to search'
+        },
+        noData: {
+          '/': '找不到结果',
+          '/zh-cn/': '找不到结果',
+          '/en-us/': 'No Results'
+        }
+      },
+    }
+  </script>
+  <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+  <script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
+  <!-- 执行外链脚本 -->
+  <!-- <script src="//unpkg.com/docsify/lib/plugins/external-script.js"></script> -->
+  <script src="//unpkg.com/docsify-copy-code"></script>
+  <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <script src="//unpkg.com/docsify/lib/plugins/zoom-image.js"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'zoe-community/zoe-room'
+    };
+  </script>
+  <!-- 聊天室 -->
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async="" defer=""></script>
+  <script src="https://unpkg.com/docsify-plugin-flexible-alerts"></script>
+</body>
+</html>
